@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use  App\Models\Setting;
+use  App\Models\Cart;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $setting=Setting::first();
+        $count=Cart::count();
         view()->share('setting', $setting);
+        view()->share('count', $count);
     }
 }
