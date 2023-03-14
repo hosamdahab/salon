@@ -1,3 +1,62 @@
+/* saved classes  */
+.gap-1 {
+    gap: .25rem;
+}
+
+.gap-2 {
+    gap: .5rem;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+
+.gap-4 {
+    gap: 2rem;
+}
+
+.gap-5 {
+    gap: 3rem;
+}
+
+.gap-6 {
+    gap: 4rem;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-md {
+    font-size: 16px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-xl {
+    font-size: 20px;
+}
+
+.text-2xl {
+    font-size: 24px;
+}
+
+.text-3xl {
+    font-size: 28px;
+}
+
+.text-4xl {
+    font-size: 32px;
+}
+
+.my-xl {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+/* saved classes  */
 .ftco-navbar-light {
     transition: .3s;
 }
@@ -36,7 +95,7 @@
     font-size: 32px;
 }
 
-.ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
+[lang="ar"] .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
     font-size: 16px;
     letter-spacing: 1.25px;
 }
@@ -48,6 +107,13 @@
     border-radius: 5px;
     transition: .3s;
     letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+[lang="en"] .btn-customed {
+    letter-spacing: 0;
+    font-size: 12px;
 }
 
 .btn-customed:hover {
@@ -120,4 +186,115 @@
 
 .owl-carousel.home-slider .slider-item .overlay {
     opacity: .55;
+}
+
+.shape-span {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #c49b63;
+    color: #fff;
+    display: block;
+    border-radius: 60% 40% 40% 20% / 70% 50% 30% 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .7s;
+}
+
+.shape-span:hover {
+    transform: scale(1.1) rotate(45deg);
+}
+
+.shape-span img {
+    filter: drop-shadow(-2px 3px 3px rgba(255, 255, 255, 0.464));
+    transition: .7s;
+}
+
+.shape-span:hover img {
+    transform: rotate(-45deg) scale(0.8);
+}
+
+.banner-related-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    right: -50px;
+    filter: drop-shadow(5px 8px 8px white);
+    animation: spinning 10s linear infinite;
+}
+
+.ftco-about {
+    margin: 90px 0;
+}
+
+.ftco-about .one-half.img {
+    border-radius: 10px 0;
+    background-size: cover;
+}
+
+.ftco-about .one-half.ftco-animate {
+    padding: 120px 40px;
+    text-align: center;
+}
+
+.ftco-about .one-half .overlap {
+    margin-left: 0 !important;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: -1px 7px 15px #d9c1a31f;
+}
+
+.ftco-about .one-half .overlap p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #D9C1A3;
+    letter-spacing: 1.1px;
+}
+
+.heading-section h2::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    border-radius: 1000px;
+    background-color: #D9C1A3;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s ease-in-out;
+}
+
+.heading-section h2:hover::before {
+    width: 85px;
+}
+
+.offers-section .menu-entry {
+    border: 1px solid #c49c6359;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 470px;
+    background-color: #09090975;
+}
+
+.offers-section .menu-entry:hover .img {
+    transform: scale(1.1);
+}
+
+.offers-section .menu-entry .description {
+    height: 80px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+/* KEYFRAMES AREA STARTS */
+@keyframes spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

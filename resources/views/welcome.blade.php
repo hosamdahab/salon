@@ -36,21 +36,28 @@
     {{-- end carasoul --}}
 
 
+    <!-- services area starts  -->
+    <div class="d-flex justify-content-center align-items-center gap-5 flex-wrap my-xl">
+        @foreach ($categories as $key => $item )
+        <div class="d-flex gap-3 flex-column align-items-center">
+        <span class="shape-span">
+            <img src="{{ asset('images/pngwing.com (1).png')}}" alt="" width="100%">
+        </span>
+        <a href="{{route('changeSelectedProducts',$item['id'])}}"   class="text-xl shape-text {{$selected_category_id==$item['id'] ? 'active' : ''}} ">
+            {{ app()->getLocale() == 'ar' ? $item['department_title_ar'] :$item['department_title_en']}}
+        </a>
+        </div>
+        @endforeach
+    </div>
+    <!-- services area starts  -->
 
-    @foreach ($categories as $key => $item )
-                        <div  >
-                        <a href="{{route('changeSelectedProducts',$item['id'])}}"   class="nav-link {{$selected_category_id==$item['id'] ? 'active' : ''}} "
-                             >
-                            {{ app()->getLocale() == 'ar' ? $item['department_title_ar'] :$item['department_title_en']}}
-                        </a>
-                        </div>
-                        @endforeach
 
 
     <!-- about us -->
     @foreach ($aboutus as $item)
         <section class="ftco-about d-md-flex">
-            <div class="one-half img" style="background-image:url('{{ asset('articles/' . $item->articles_image) }}')"></div>
+            <div class="one-half img" style="position:relative;background-image:url('{{ asset('articles/' . $item->articles_image) }}')">
+                <img class="banner-related-image" src="{{ asset('images/stamp.png')}}" alt=""></div>
             <div class="one-half ftco-animate">
                 <div class="overlap">
                     <div class="heading-section ftco-animate ">
@@ -118,7 +125,7 @@
     </section> --}}
 
     <!-- اقوي العروض الترويجية-->
-	<section class="ftco-section">
+	<section class="ftco-section offers-section">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
@@ -136,16 +143,18 @@
     					<div class="text text-center pt-4">
     						<h3><a href="#"></a>{{ app()->getLocale() == 'ar'? $item->articles_title_ar : $item->articles_title_en }}</h3>
 
-                            <p>
+                            <p class="description">
                                 @if (app()->getLocale() == 'ar')
                                     <?php  echo $item->articles_subject_ar ?>
                                 @else
                                 <?php  echo $item->articles_subject_en ?>
                                 @endif
+                                
                             </p>
+                            <a href="#">read more</a>
                             <p class="price"><span>{{$item->price}}$</span></p>
 
-                            <p><a href="{{route('bookServicePage',[$item['id'],'offer'])}}" class="btn btn-primary btn-outline-primary">@lang('auth.Get Offer Now')</a></p>
+                            <p><a href="{{route('bookServicePage',[$item['id'],'offer'])}}" class="btn btn-customed">@lang('auth.Get Offer Now')</a></p>
 
     					</div>
 
