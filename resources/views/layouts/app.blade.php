@@ -68,93 +68,98 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"
             dir="{{ app()->getLocale() == 'ar' ? 'rtl' : '' }}">
-            <div class="container">
-                <a class="navbar-brand"
-                    href="{{ url('/') }}">{{ app()->getLocale() == 'ar' ? $setting->setting_title_ar : $setting->setting_title_en }}</a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> @lang('auth.Menu')
-                </button>
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="{{ LaravelLocalization::localizeUrl('/') }}"
-                                class="nav-link">@lang('auth.Home')</a></li>
-                        <li class="nav-item"><a href="{{ route('offers') }}" class="nav-link">@lang('auth.offers')</a>
-                        </li>
-                        <li class="nav-item"><a href="{{ route('servicies') }}" class="nav-link">@lang('auth.Services')</a>
-                        </li>
-                        <li class="nav-item"><a href="{{ route('ourProducts') }}"
-                                class="nav-link">@lang('auth.Products')</a>
-                        </li>
-                        <li class="nav-item"><a href="{{ route('contactUs') }}" class="nav-link">@lang('auth.Contact')</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="shop.html" id="dropdown04" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">@lang('auth.lang')</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown04" style="margin-top: -30%">
-                                <a class="dropdown-item"
-                                    href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">@lang('auth.arabic')</a>
-                                <a class="dropdown-item"
-                                    href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">@lang('auth.english')</a>
-                            </div>
-                        </li>
-
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">@lang('auth.login')</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">@lang('auth.register')</a>
-                                </li>
-                            @endif
-                        @else
+            <div class="container-fluid text-center">
+                <div class="w-100 row justify-content-between align-items-center">
+                    <div>
+                        <a class="navbar-brand"
+                            href="{{ url('/') }}">{{ app()->getLocale() == 'ar' ? $setting->setting_title_ar : $setting->setting_title_en }}
+                        </a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="oi oi-menu"></span> @lang('auth.Menu')
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="{{ LaravelLocalization::localizeUrl('/') }}"
+                                    class="nav-link">@lang('auth.Home')</a></li>
+                            <li class="nav-item"><a href="{{ route('offers') }}" class="nav-link">@lang('auth.offers')</a>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('servicies') }}" class="nav-link">@lang('auth.Services')</a>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('ourProducts') }}"
+                                    class="nav-link">@lang('auth.Products')</a>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('contactUs') }}" class="nav-link">@lang('auth.Contact')</a>
+                            </li>
+    
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                                    <ul class="submenu" style="margin-top: -20%">
-                                        @if (Auth::user()->rule_id == 1)
-                                            <li>
-                                                <a class="dropdown-item"
-                                                    href="{{ LaravelLocalization::localizeUrl('/home') }}">
-                                                    @lang('auth.control panel')
-                                                </a>
-                                            </li>
-                                        @else
-                                            <a href="{{ LaravelLocalization::localizeUrl('/home') }}"
-                                                class="dropdown-item">@lang('auth.control panel')</a>
-                                        @endif
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                                            @lang('auth.logout')
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </ul>
+                                <a class="nav-link dropdown-toggle" href="shop.html" id="dropdown04" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">@lang('auth.lang')</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown04" style="margin-top: -30%">
+                                    <a class="dropdown-item"
+                                        href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">@lang('auth.arabic')</a>
+                                    <a class="dropdown-item"
+                                        href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">@lang('auth.english')</a>
                                 </div>
                             </li>
-                        @endguest
-                        <li class="nav-item cart"><a href="{{route('cartPage')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center">
-
-                            <small> {{$count}} </small>
-                           
-                        </span></a>
-                        </li>
-
-
-                    </ul>
+    
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">@lang('auth.login')</a>
+                                    </li>
+                                @endif
+    
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">@lang('auth.register')</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                        <ul class="submenu" style="margin-top: -20%">
+                                            @if (Auth::user()->rule_id == 1)
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ LaravelLocalization::localizeUrl('/home') }}">
+                                                        @lang('auth.control panel')
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <a href="{{ LaravelLocalization::localizeUrl('/home') }}"
+                                                    class="dropdown-item">@lang('auth.control panel')</a>
+                                            @endif
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                @lang('auth.logout')
+                                            </a>
+    
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </li>
+                            @endguest
+                            <li class="nav-item cart"><a href="{{route('cartPage')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center">
+    
+                                <small> {{$count}} </small>
+                               
+                            </span></a>
+                            </li>
+    
+    
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
