@@ -16,6 +16,7 @@
 
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('css_ar/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/new-styles.css') }}">
         <link rel="stylesheet" href="{{ asset('css_ar/open-iconic-bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css_ar/animate.css') }}">
 
@@ -35,6 +36,7 @@
         <link rel="stylesheet" href="{{ asset('css_ar/icomoon.css') }}">
     @else
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/new-styles.css') }}">
         <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
 
@@ -68,7 +70,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"
             dir="{{ app()->getLocale() == 'ar' ? 'rtl' : '' }}">
-            <div class="container-fluid text-center">
+            <div class="container-fluid text-center mx-5">
                 <div class="w-100 row justify-content-between align-items-center">
                     <div>
                         <a class="navbar-brand"
@@ -81,7 +83,7 @@
                     </button>
     
                     <div class="collapse navbar-collapse" id="ftco-nav">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav mx-auto">
                             <li class="nav-item active"><a href="{{ LaravelLocalization::localizeUrl('/') }}"
                                     class="nav-link">@lang('auth.Home')</a></li>
                             <li class="nav-item"><a href="{{ route('offers') }}" class="nav-link">@lang('auth.offers')</a>
@@ -104,22 +106,32 @@
                                         href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">@lang('auth.english')</a>
                                 </div>
                             </li>
-    
-                            @guest
+                            <li class="nav-item cart">
+                                <a href="{{route('cartPage')}}" class="nav-link">
+                                    <span class="icon icon-shopping_cart"></span>
+                                    <span class="bag d-flex justify-content-center align-items-center">
+                                        <small> {{$count}} </small>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                        @guest
                                 @if (Route::has('login'))
-                                    <li class="nav-item">
+                                    <button class="btn btn-customed">
                                         <a class="nav-link" href="{{ route('login') }}">@lang('auth.login')</a>
-                                    </li>
+                                    </button>
                                 @endif
     
                                 @if (Route::has('register'))
-                                    <li class="nav-item">
+                                    <button class="btn btn-customed">
                                         <a class="nav-link" href="{{ route('register') }}">@lang('auth.register')</a>
-                                    </li>
+                                    </button>
                                 @endif
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                <button class="dropdown dropdown-customed-user py-2 px-3">
+                                    <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
@@ -148,17 +160,8 @@
                                             </form>
                                         </ul>
                                     </div>
-                                </li>
+                                </button>
                             @endguest
-                            <li class="nav-item cart"><a href="{{route('cartPage')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center">
-    
-                                <small> {{$count}} </small>
-                               
-                            </span></a>
-                            </li>
-    
-    
-                        </ul>
                     </div>
                 </div>
             </div>

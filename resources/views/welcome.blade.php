@@ -14,9 +14,14 @@
                             <span class="subheading">{{ app()->getLocale() == 'ar'? $item->articles_title_ar  :$item->articles_title_en }}</span>
                             <h1 class="mb-4">{{ app()->getLocale() == 'ar'? $item->articles_address_ar :$item->articles_address_en }}</h1>
                             <p class="mb-4 mb-md-5">{{ app()->getLocale() == 'ar'?  $item->articles_subject_ar : $item->articles_subject_en }}</p>
-                            <p><a href="{{ route('servicies') }}" class="btn btn-primary p-3 px-xl-4 py-xl-3">@lang('auth.Services')
-                                </a> <a href="{{ route('ourProducts') }}"
-                                    class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">@lang('auth.Products')</a></p>
+                            <div class="">
+                                <a href="{{ route('servicies') }}" class="btn btn-customed  p-3 px-xl-4 py-xl-3">
+                                    @lang('auth.Services')
+                                </a> 
+                                <a href="{{ route('ourProducts') }}" class="btn btn-customed  p-3 px-xl-4 py-xl-3">
+                                    @lang('auth.Products')
+                                </a>
+                            </div>
                         </div>
 
                     </div>
@@ -29,6 +34,18 @@
 
     </section>
     {{-- end carasoul --}}
+
+
+
+    @foreach ($categories as $key => $item )
+                        <div  >
+                        <a href="{{route('changeSelectedProducts',$item['id'])}}"   class="nav-link {{$selected_category_id==$item['id'] ? 'active' : ''}} "
+                             >
+                            {{ app()->getLocale() == 'ar' ? $item['department_title_ar'] :$item['department_title_en']}}
+                        </a>
+                        </div>
+                        @endforeach
+
 
     <!-- about us -->
     @foreach ($aboutus as $item)

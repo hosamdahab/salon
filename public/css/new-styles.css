@@ -1,0 +1,123 @@
+.ftco-navbar-light {
+    transition: .3s;
+}
+
+.ftco-navbar-light:hover {
+    background-color: #151111 !important;
+}
+
+.dropdown-customed-user {
+    background: transparent;
+    border: 1px solid #404040;
+    border-radius: 4px;
+}
+
+.dropdown-customed-user .dropdown-menu.show {
+    background-color: #151111;
+    border: 1px solid #303030;
+    color: #888;
+    margin: 0;
+    padding: 0;
+    margin-top: 2px;
+}
+
+.dropdown-customed-user .dropdown-menu.show .submenu {
+    margin-top: 0 !important;
+    padding: 10px 0;
+    margin-bottom: 0;
+}
+
+.dropdown-customed-user .dropdown-item {
+    width: 100%;
+    color: #999;
+}
+
+.navbar-brand {
+    font-size: 32px;
+}
+
+.ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
+    font-size: 16px;
+    letter-spacing: 1.25px;
+}
+
+.btn-customed {
+    margin: 0 5px;
+    background: transparent;
+    border: 1px solid #c49b63;
+    border-radius: 5px;
+    transition: .3s;
+    letter-spacing: 1.5px;
+}
+
+.btn-customed:hover {
+    border-color: #a98554;
+    background-color: #a98554;
+    box-shadow: 0px 3px 15px 0px #a98554 !important;
+}
+
+.btn-customed:hover,
+.btn-customed:hover .nav-link {
+    color: #d0d0d0 !important;
+}
+
+.ftco-navbar-light.scrolled .nav-link {
+    color: #9a9a9a !important;
+}
+
+.owl-carousel.home-slider .owl-dots {
+    position: absolute;
+    left: unset;
+    right: 0;
+    bottom: 50%;
+    width: unset;
+    text-align: center;
+    transform: rotate(90deg);
+}
+
+.owl-carousel.home-slider .slider-item .slider-text .subheading {
+    font-size: 78px !important;
+    filter: drop-shadow(-1px 1px 4px #c49b63);
+}
+
+.owl-carousel.home-slider .slider-item .slider-text p {
+    letter-spacing: 1.5px;
+    filter: drop-shadow(-2px 3px 3px white);
+}
+
+.owl-carousel.home-slider .owl-dots .owl-dot {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.owl-carousel.home-slider .owl-dots .owl-dot,
+.owl-carousel.home-slider .owl-dots .owl-dot span {
+    transition: .3s;
+}
+
+.owl-carousel.home-slider .owl-dots .owl-dot.active {
+    border-color: #D9C1A3;
+}
+
+
+.owl-carousel.home-slider .owl-dots .owl-dot span {
+    width: 5px;
+    height: 5px;
+}
+
+.owl-carousel.home-slider .owl-dots .owl-dot.active span,
+.owl-carousel.home-slider .owl-dots .owl-dot:hover span {
+    background: #D9C1A3;
+    width: 10px;
+    height: 10px;
+}
+
+.owl-carousel.home-slider,
+.owl-carousel.home-slider .slider-item .slider-text,
+.owl-carousel.home-slider .slider-item {
+    height: 950px;
+}
+
+.owl-carousel.home-slider .slider-item .overlay {
+    opacity: .55;
+}
